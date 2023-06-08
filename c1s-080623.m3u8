@@ -1,0 +1,4 @@
+#EXTM3U
+#EXT-X-VERSION:3
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000
+http://39.145.32.173/liveplay-kk.rtxapp.com/live/program/live/hdnba5/1300000/mnf.m3u8
