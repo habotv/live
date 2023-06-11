@@ -1,4 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000
-https://beetv.my.id/x/usee-spotv-gojokkk.m3u8
+https://api.beetv.my.id/new/spotv.m3u8?toket=302ad4d22c68a4c9415732cc28e9e9d10ec9f4df4b578e043c88044edbf17830&exp=1686454654
