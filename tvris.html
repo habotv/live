@@ -21,6 +21,8 @@ body {
   <script src="https://vibetv.github.io/clappr-chromecast-plugin.min.js"></script>
   <script src="https://vibetv.github.io/clappr-pip.min.js"></script>
   <script src="https://vibetv.github.io/dash-shaka-playback.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/flv.js@latest/dist/flv.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-flvjs-playback@latest/dist/clappr-flvjs-playback.min.js"></script>
   <script src="devtool.js"></script>
   
 <div id="player"></div>
@@ -38,7 +40,7 @@ function playM3u8(url, license) {
         height: '100%',
         fullscreenEnabled: 'true',
         hideMediaControl: 'false',
-        plugins: [LevelSelector, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
+        plugins: [LevelSelector, FLVJSPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
 
         chromecast: {
             appId: '9DFB77C0',
