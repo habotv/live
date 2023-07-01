@@ -41,8 +41,13 @@ function playM3u8(url, license) {
         fullscreenEnabled: 'true',
         hideMediaControl: 'false',
         mimeType: 'video/flv',
-        plugins: [LevelSelector, FLVJSPlayback, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
-
+        plugins: [FLVJSPlayback, LevelSelector, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback],
+playback: {
+    flvjsConfig: {
+      enableLogging: true, // default is "false"
+      // Params from flv.js
+    }
+  },
         chromecast: {
             appId: '9DFB77C0',
             media: {
