@@ -1,4 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1727459,CODECS="avc1.4d401e,mp4a.40.2",RESOLUTION=640x480
-http://210.210.155.37/session/12d55324-0bd7-11ee-a9ba-8fc597ed6649/qwr9ew/s/s41/01.m3u8
+http://43.132.80.166/mobilelive-pull.ysp.cctv.cn/ysp/2020192301_hd.m3u8
