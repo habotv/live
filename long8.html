@@ -1,9 +1,12 @@
+
 <html lang="id">
- <head> 
-  <meta charset="utf-8"> 
-  <meta name="viewport" content="width=device-width"> 
-  <meta name="referrer" content="same-origin"> 
-  <title>GRATIS STREAMING </title> 
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+<meta name="referrer" content="same-origin">
+
   <style>
   .konten-atas {
   position: absolute;
@@ -15,7 +18,7 @@
 }
 
   .vidio {
-        margin-top: -5px; /* Ubah angka ini sesuai dengan jarak yang diinginkan */
+        margin-top: 0px; /* Ubah angka ini sesuai dengan jarak yang diinginkan */
     }
             #offline-message {
       display: none;
@@ -44,9 +47,41 @@ display: flex;
   border: 1px solid #000;
   border-radius: 10px;
 }
+  .Marquee-box {
+     position: relative;
+     display: inline-block;
+     width: 100%;
+     height: 30px;
+  }
+  .MyMarquee {
+     text-align: center;
+     font-weight: bold;
+     width: 100%;
+     height: 100%;
+     font-size: 12px;
+     border-bottom: 3px solid #000;
+     color: #FFFFFF;
+     font-family: Arial, Helvetica, sans-serif;
+     vertical-align: middle;
+     -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+             box-sizing: border-box;
+     background-color: #000;
 
-    </style> 
-  <script>
+  }
+  .MyMarquee div {
+     display: inline-block;
+     vertical-align: middle;
+  }
+  .MyMarquee a, .MyMarquee img {
+     display: inline-block;
+     text-decoration: underline;
+     color: #FFFFFF;
+     vertical-align: middle;
+  }  
+
+    </style>
+    <script>
         window.addEventListener('load', function() {
             var online = navigator.onLine;
 
@@ -67,22 +102,29 @@ display: flex;
                 updateStatus();
             });
         });
-    </script> 
- </head> 
- <body bgcolor="black" style="margin:0" oncontextmenu="return false" onkeydown="return false" onmousedown="return false">   
-  <div class="konten-bawah"> 
-   <!-- Konten di bawah --> 
-   <iframe class="vidio" id="vidio" width="100%" height="100%" margin src="https://stream.zhetv.eu.org/event/6" title="Lsbt" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
-  </div> 
-  <div class="konten-atas"> 
-   <!-- Konten di atas --> 
-   <marquee bgcolor="black" style="color: white; font-family: arial; font-size: 16px;">
-     Raket TV : Untuk Memilih resolusi Silahkan Klik Tombol Pengaturan/Roda Gir, Di pojok Kanan Bawah, Lalu Pilih Resolution, Dan Pilih Resolusi Sesuai Kemampuan Jaringan! | Dibeberapa device Seringkali gambar ngefreze namun suara tetap jalan, jadi jika ini terjadi kepada anda maka hal yang perlu dilakukan adalah pilih Resolusi jangan di auto | harap aktifkan rotasi layar anda untuk mode full screen! 
-   </marquee> 
-  </div> 
-  <div id="offline-message"> 
-   <p>Harap periksa koneksi internet Anda dan coba lagi</p> 
-  </div> 
+    </script>
+</head>
+<body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false' onmousedown='return false'>
+<div class="konten-bawah">
+  <!-- Konten di bawah -->
+
+
+<iframe class="vidio" id="vidio" width="100%" height="100%" margin src="https://stream.zhetv.eu.org/event/6" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="konten-atas">
+  <!-- Konten di atas -->
+<div class="Marquee-box">
+   <marquee class="MyMarquee" id="my_marquee" direction="left" behavior="1" scrollamount="6" onmouseover="this.stop()" onmouseout="this.start()">
+   <div style="margin-top:6px"> RAKET TV - UNTUK MEMILIH RESOLUSI VIDEO SILAHKAN KLIK TOMBOL SETTING (ICON RODA GIR) KANAN BAWAH, LALU PILIH RESOLUTION, DAN PILIH RESOLUSI SESUAIKAN KEMAMPUAN JARINGAN! - AKTIFKAN ROTASI LAYAR PONSEL ANDA UNTUK MODE FULL SCREEN! </div>
+   </marquee>
+</div>
+
+</div>
+  <div id="offline-message">
+    <h2>Oops, You're Offline!</h2>
+    <p>It looks like your network connection isn't working right now.</p>
+  </div>
+	
   <script>
     var iframe = document.getElementById('vidio');
     var offlineMessage = document.getElementById('offline-message');
@@ -108,6 +150,6 @@ display: flex;
       offlineMessage.style.display = 'block';
       iframe.style.display = 'none';
     }
-  </script> 
- </body>
-</html>
+  </script>
+
+</body></html>
