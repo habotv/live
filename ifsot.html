@@ -1,0 +1,142 @@
+
+
+<html lang="id">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>LSBTV - Embed </title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/gaya.css" />
+<script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/fullscreen.js' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/aspekrasio.js' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/popupwindow.js' crossorigin='anonymous'></script>
+<script src='https://cdn.jsdelivr.net/gh/Arjunaaaaa/lsbtv/aspekrasio.js' crossorigin='anonymous'>
+ </script>
+  <style>
+  .konten-atas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.konten-bawah {
+  position: relative;
+}
+
+  .vidio {
+        margin-top: -12px; /* Ubah angka ini sesuai dengan jarak yang diinginkan */
+    }
+            #offline-message {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .container {
+  position: relative;
+}
+
+.overlay {
+  position: relative;
+  top: 0;
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}
+.iframe {
+  border: 1px solid #000;
+  border-radius: 10px;
+}
+
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+            var online = navigator.onLine;
+
+            function updateStatus() {
+                var offlineMessage = document.getElementById('offline-message');
+                offlineMessage.style.display = online ? 'none' : 'block';
+            }
+
+            updateStatus();
+
+            window.addEventListener('online', function() {
+                online = true;
+                updateStatus();
+            });
+
+            window.addEventListener('offline', function() {
+                online = false;
+                updateStatus();
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+    
+</head>
+<body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false' onmousedown='return false'>
+<div class="konten-bawah">
+  <!-- Konten di bawah -->
+
+
+<iframe class="vidio" id="vidio" width="100%" height="100%" margin src="apasih banggg" title="Lsbt" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<div class="konten-atas">
+  <!-- Konten di atas -->
+
+<marquee bgcolor="blue" style="color: white; font-family: arial; font-size: 15px;"> PERHATIAN! Untuk Memilih resolusi Silahkan Klik Tombol Pengaturan/Roda Gir, Di pojok Kanan Bawah, Lalu Pilih Resolution, Dan Pilih Resolusi Sesuai Kemampuan Jaringan! | Dibeberapa device Seringkali gambar ngefreze namun suara tetap jalan, jadi jika ini terjadi kepada anda maka hal yang perlu dilakukan adalah pilih Resolusi jangan di auto | harap aktifkan rotasi layar anda untuk mode full screen! </marquee>
+</div>
+  <div id="offline-message">
+    <h2>OM MAU NGAPAIN OM?🤣</h2>
+    <p>Harap periksa koneksi internet Anda dan coba lagi. Lain Kali Jangan Gitu Ya! Dosa Tau Nyuri Mulu, Langsung Ke Sumbernya Lah Masa Mau Nyuri Disini🗿</p>
+  </div>
+	
+  <script>
+    var iframe = document.getElementById('vidio');
+    var offlineMessage = document.getElementById('offline-message');
+
+    iframe.addEventListener('load', function() {
+      // Fungsi ini akan dipanggil saat iframe selesai dimuat
+
+      // Periksa status koneksi internet
+      var online = navigator.onLine;
+
+      if (!online) {
+        // Tampilkan pesan jika tidak terhubung
+        offlineMessage.style.display = 'block';
+        iframe.style.display = 'none';
+      }
+    });
+
+    // Periksa status koneksi saat memuat halaman
+    var online = navigator.onLine;
+
+    if (!online) {
+      // Tampilkan pesan jika tidak terhubung
+      offlineMessage.style.display = 'block';
+      iframe.style.display = 'none';
+    }
+  </script>
+<script>
+        // Mendapatkan parameter URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const file = urlParams.get('lsbtv');
+
+        // Mengganti nilai src iframe
+        if (file) {
+            const iframe = document.getElementById('vidio');
+            iframe.src = file;
+        }
+    </script>
+</body>
+</html>
+    
