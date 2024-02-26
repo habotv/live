@@ -458,7 +458,7 @@ const data_channels = [
   'name': "COURT 1 BADMINTON",
   'category': "CHANNEL EVENT TV",
   'link': "https://habotv.github.io/live/mip.html?b=1",
-  'type': "auto"
+  'type': "iframe"
 },{
   'name': "COURT 2 BADMINTON",
   'category': "CHANNEL EVENT TV",
