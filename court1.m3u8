@@ -1,4 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:3
-#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3000000
-http://43.132.80.166/play.cbalive.weibisai.com/live/3287139494817061_AiSD.m3u8?txSecret=632de36a5dbbffda85614b1011c04c2b&txTime=64811A00
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=8000000
+http://qiniucdnct.inter.iqiyi.com/tslive/l1/c65_ssports_20240425_cjiestio_720p_chst1_t4/o_g5nAAHoHa4PbIkDw2GZZAYFxa9G3plcbNhrEzwrtYL_c8VQqjG9ZkuTUnhubqg9Dy1mctANa8ggArL-3Ivjo8FubgH0prC1-ODnzMWsLM6HLfJgntn1eO7D1ct_fl2OiASHhhdLNpUqNaGSkbSlc2BhygQ6lQP3DWN0rmWhm_kw6lzDYWryx_KZNMZDDDlbFiaC_Q4IiI__G4mtf32UTUHw8v_SPj2bIuRphCYZED7QogMsiBm2L32V7s2vt-XiUCdrI3uyhIP8SjwGSYOTeBJhs2MBIWRDKzep9mwRfA/19a6f4f969306d0b16855cc0d76f87745/c65_ssports_20240425_cjiestio_720p_chst1_t4.m3u8?key=0dc15c9b0e50c64011e7babf50ec16f6e&dis_t=1714053485&qdpv=3&pv=0.1
