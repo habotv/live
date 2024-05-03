@@ -1,154 +1,47 @@
-<html lang="id">
-<html>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-<meta name="referrer" content="same-origin">
-
-  <style>
-  .konten-atas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.konten-bawah {
-  position: relative;
-}
-
-  .vidio {
-        margin-top: 0px; /* Ubah angka ini sesuai dengan jarak yang diinginkan */
-    }
-            #offline-message {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f1f1f1;
-      padding: 20px;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .container {
-  position: relative;
-}
-
-.overlay {
-  position: relative;
-  top: 0;
-display: flex;
-  justify-content: center;
-  align-items: center;
-}
-}
-.iframe {
-  border: 1px solid #000;
-  border-radius: 10px;
-}
-  .Marquee-box {
-     position: relative;
-     display: inline-block;
-     width: 100%;
-     height: 30px;
-  }
-  .MyMarquee {
-     text-align: center;
-     font-weight: bold;
-     width: 100%;
-     height: 100%;
-     font-size: 12px;
-     border-bottom: 3px solid #000;
-     color: #FFFFFF;
-     font-family: Arial, Helvetica, sans-serif;
-     vertical-align: middle;
-     -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-             box-sizing: border-box;
-     background-color: #000;
-
-  }
-  .MyMarquee div {
-     display: inline-block;
-     vertical-align: middle;
-  }
-  .MyMarquee a, .MyMarquee img {
-     display: inline-block;
-     text-decoration: underline;
-     color: #FFFFFF;
-     vertical-align: middle;
-  }  
-
-    </style>
-    <script>
-        window.addEventListener('load', function() {
-            var online = navigator.onLine;
-
-            function updateStatus() {
-                var offlineMessage = document.getElementById('offline-message');
-                offlineMessage.style.display = online ? 'none' : 'block';
-            }
-
-            updateStatus();
-
-            window.addEventListener('online', function() {
-                online = true;
-                updateStatus();
-            });
-
-            window.addEventListener('offline', function() {
-                online = false;
-                updateStatus();
-            });
-        });
-    </script>
-</head>
-<body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false' onmousedown='return false'>
-<div class="konten-bawah">
-  <!-- Konten di bawah -->
-
-
-<iframe class="vidio" id="vidio" width="100%" height="100%" margin src="https://stream.zhetv.eu.org/event/6" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-<div class="konten-atas">
-  <!-- Konten di atas -->
-<div class="Marquee-box">
-   <marquee class="MyMarquee" id="my_marquee" direction="left" behavior="1" scrollamount="6" onmouseover="this.stop()" onmouseout="this.start()">
-   <div style="margin-top:8px"> Soku TV - Untuk Memilih Resolusi Video Silahkan Klik Tombol Setting (Icon Roda Gir) Kanan Bawah, Lalu Pilih Resolution, Dan Pilih Resolusi Sesuai Kemampuan Jaringan! - Aktifkan Rotasi Layar Ponsel Anda Untuk Mode Full Screen! </div>
-   </marquee>
-</div>
-
-</div>
-  <div id="offline-message">
-    <h2>Oops, You're Offline!</h2>
-    <p>It looks like your network connection isn't working right now.</p>
-  </div>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-  <script>
-    var iframe = document.getElementById('vidio');
-    var offlineMessage = document.getElementById('offline-message');
+<script src="//ssl.p.jwpcdn.com/player/v/8.21.0/jwplayer.js"></script>
+<script> jwplayer.key = 'XSuP4qMl+9tK17QNb+4+th2Pm9AWgMO/cYH8CI0HGGr7bdjo';
+</script>
+	</head>
+<body>
+<div id="player"></div>
+<script>
 
-    iframe.addEventListener('load', function() {
-      // Fungsi ini akan dipanggil saat iframe selesai dimuat
+    var playerInstance = jwplayer("player");
 
-      // Periksa status koneksi internet
-      var online = navigator.onLine;
+    playerInstance.setup({
 
-      if (!online) {
-        // Tampilkan pesan jika tidak terhubung
-        offlineMessage.style.display = 'block';
-        iframe.style.display = 'none';
-      }
+        playlist: [{
+           
+            "sources": [
+                {
+                    "default": false,
+                    "type": "dash",
+                    "file": 'https://d25tgymtnqzu8s.cloudfront.net/smil:okey/manifest.mpd',
+                    "label": "0"
+                }
+            ]
+        }],
+        width: "100%",
+        height: "100%",
+        aspectratio: "16:9",
+        autostart: true,
+			 logo: {
+ 					 file: 'https://raw.githubusercontent.com/Alvarodekausar/Sports/main/rimba.png',
+ 					 link: 'sportsnews.id/',
+  						position: 'top-right'
+  					},
+			cast:{},
+			sharing: {}
     });
+</script>
 
-    // Periksa status koneksi saat memuat halaman
-    var online = navigator.onLine;
-
-    if (!online) {
-      // Tampilkan pesan jika tidak terhubung
-      offlineMessage.style.display = 'block';
-      iframe.style.display = 'none';
-    }
-  </script>
-
-</body></html>
+	</body>
+</html>
