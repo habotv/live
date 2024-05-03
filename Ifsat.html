@@ -1,134 +1,98 @@
-<html lang="id">
-<html>
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>LSBTV - Embed </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- </script>
+  <title>TV Okey | RTM</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.7.7/dist/controls.css">
+  <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.7.7/dist/shaka-player.ui.debug.js"></script>
+  
   <style>
-  .konten-atas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.konten-bawah {
-  position: relative;
-}
-
-  .vidio {
-        margin-top: -12px; /* Ubah angka ini sesuai dengan jarak yang diinginkan */
-    }
-            #offline-message {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f1f1f1;
-      padding: 20px;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .container {
-  position: relative;
-}
-
-.overlay {
-  position: relative;
-  top: 0;
-display: flex;
-  justify-content: center;
-  align-items: center;
-}
-}
-.iframe {
-  border: 1px solid #000;
-  border-radius: 10px;
-}
-
-    </style>
-    <script>
-        window.addEventListener('load', function() {
-            var online = navigator.onLine;
-
-            function updateStatus() {
-                var offlineMessage = document.getElementById('offline-message');
-                offlineMessage.style.display = online ? 'none' : 'block';
-            }
-
-            updateStatus();
-
-            window.addEventListener('online', function() {
-                online = true;
-                updateStatus();
-            });
-
-            window.addEventListener('offline', function() {
-                online = false;
-                updateStatus();
-            });
-        });
-    </script>
+  *{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;-webkit-border:0;-moz-border:0;border:0;cursor:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;}html,body{width:100vw;width:100svw;height:100vh;height:100svh;background:#000;overflow:hidden;}video{width:100vw;width:100svw;height:100vh;height:100svh;overflow:hidden}.theme-blue .shaka-controls-button-panel .material-icons-round{color:#eee}.theme-blue .shaka-overflow-menu,.theme-blue .shaka-settings-menu{background:rgba(0,0,0,0.8);border-radius:4px;}.theme-blue .shaka-overflow-menu span+span{font-size:80%;color:#fff;padding-top:2px}.theme-blue .shaka-overflow-menu button,.theme-blue .shaka-settings-menu button{color:#fff;transition:all .2s linear;}.theme-blue .shaka-overflow-menu button:hover,.theme-blue .shaka-settings-menu button:hover{background:#3275e4;cursor:auto}
+  </style>
 
 </head>
 <body>
-    
-</head>
-<body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false' onmousedown='return false'>
-<div class="konten-bawah">
-  <!-- Konten di bawah -->
 
-
-<iframe class="vidos" id="vidos" width="100%" height="100%" margin src="apasih banggg" title="Lsbt" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-<div class="konten-atas">
-  <!-- Konten di atas -->
-
-<marquee bgcolor="blue" style="color: white; font-family: arial; font-size: 15px;"> RAKET TV! Untuk Memilih resolusi Silahkan Klik Tombol Pengaturan/Roda Gir, Di pojok Kanan Bawah, Lalu Pilih Resolution, Dan Pilih Resolusi Sesuai Kemampuan Jaringan! | Dibeberapa device Seringkali gambar ngefreze namun suara tetap jalan, jadi jika ini terjadi kepada anda maka hal yang perlu dilakukan adalah pilih Resolusi jangan di auto | harap aktifkan rotasi layar anda untuk mode full screen! </marquee>
-</div>
-  <div id="offline-message">
-    <h2>OPPS</h2>
-    <p>Harap periksa koneksi internet Anda dan coba lagi. Lain Kali Jangan Gitu Ya!</p>
+  <div class="theme-blue">
+    <video data-shaka-player id="video" autoplay="true" preload="auto" poster="https://i.imgur.com/zlzQwXY.jpg"></video>
   </div>
-	
+
   <script>
-    var iframe = document.getElementById('vidos');
-    var offlineMessage = document.getElementById('offline-message');
+    const manifestUri = 'https://d25tgymtnqzu8s.cloudfront.net/smil:okey/manifest.mpd';
 
-    iframe.addEventListener('load', function() {
-      // Fungsi ini akan dipanggil saat iframe selesai dimuat
+    function initApp() {
+      shaka.polyfill.installAll();
+      if (shaka.Player.isBrowserSupported()) {
+        init();
+      } else {
+        console.error('Browser not supported!');
+      }
+    }
 
-      // Periksa status koneksi internet
-      var online = navigator.onLine;
+    async function init() {
+      const video = document.getElementById('video');
+      const ui = video['ui'];
+      const controls = ui.getControls();
+      const player = controls.getPlayer();
+      const config = {
+        'seekBarColors': {
+          base: 'rgba(66, 133, 244, 0.35)',
+          buffered: 'rgba(66, 133, 244, 0.6)',
+          played: 'rgba(66, 133, 244, 0.8)',
+        },
+        'volumeBarColors': {
+          base: 'rgba(66, 133, 244, 0.8)',
+          level: 'rgb(66, 133, 244)',
+        }
+      }
+      ui.configure(config);
 
-      if (!online) {
-        // Tampilkan pesan jika tidak terhubung
-        offlineMessage.style.display = 'block';
-        iframe.style.display = 'none';
+      window.player = player;
+      window.ui = ui;
+      window.controls = controls;
+
+      player.addEventListener("error", onPlayerErrorEvent);
+      controls.addEventListener("error", onUIErrorEvent);
+
+      try {
+        await player.load(manifestUri);
+        console.log('The video has now been loaded!');
+      } catch (error) {
+        onPlayerError(error);
+      }
+
+      function onPlayerErrorEvent(errorEvent) {
+        onPlayerError(event.detail);
+      }
+
+      function onPlayerError(error) {
+        console.error('Error code', error.code + ':', 'Video could not be loaded!', '[Media not found].');
+      }
+
+      function onUIErrorEvent(errorEvent) {
+        onPlayerError(event.detail);
+      }
+    }
+
+    function initFailed(errorEvent) {
+      console.error('Unable to load the UI library!');
+    }
+
+    document.addEventListener('shaka-ui-loaded', init);
+    document.addEventListener('shaka-ui-load-failed', initFailed);
+    document.addEventListener('DOMContentLoaded', initApp);
+
+    Object.defineProperty(navigator, 'userAgent', {
+      get: function() { // Latest (Feb 18, 2024)
+        return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Firefox/122.0 Edg/121.0.2277.112 OPR/107.0.0.0 UCBrowser/16.3.0.1281 Vivaldi/6.5.3206.63 YaBrowser/23.9.0.2325 Yowser/2.5 Safari/537.36';
       }
     });
-
-    // Periksa status koneksi saat memuat halaman
-    var online = navigator.onLine;
-
-    if (!online) {
-      // Tampilkan pesan jika tidak terhubung
-      offlineMessage.style.display = 'block';
-      iframe.style.display = 'none';
-    }
   </script>
-<script>
-        // Mendapatkan parameter URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const file = urlParams.get('file');
 
-        // Mengganti nilai src iframe
-        if (file) {
-            const iframe = document.getElementById('vidos');
-            iframe.src = file;
-        }
-    </script>
 </body>
 </html>
