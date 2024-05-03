@@ -21,65 +21,8 @@
 <div class="youtube-theme">
 <div data-shaka-player-container="" class="shaka-mobile shaka-video-container" shaka-controls="true"><video autoplay="" autostart="true" data-shaka-player="" poster="https://cdn.jsdelivr.net/gh/bitmox/malay@main/promis.jpg" id="youtube-theme" style="width: 100vw; height: calc(var(--vh, 1vh) * 100);" class="shaka-video"></video>
 </div></div>
-<script type="text/javascript">
-const youtube_theme_manifestUri = 'https://d25tgymtnqzu8s.cloudfront.net/smil:okey/manifest.mpd';
-async function init() {
-  const video = document.getElementById('youtube-theme');
-    const ui = video['ui'];
-    const config = {
-      'seekBarColors': {
-        base: 'rgba(255,255,255,.2)',
-        buffered: 'rgba(255,255,255,.4)',
-        played: 'rgb(255,0,0)',
-      }
-    }
-   ui.configure(config);
-    const controls = ui.getControls();
-    const player = controls.getPlayer();
-    player.configure({
-  drm                               : {
-  clearKeys                         : {
-//   'key-id-in-hex'                : 'key-in-hex',
-    '74ec471a250d423e9de47243fe4e7378': 'a2e328ed74149502cdeaad656f6af378',
-    }
-  }
-})
-  // Attach player and ui to the window to make it easy to access in the JS console.
-  window.player = player;
-  window.ui = ui;
-  // Listen for error events.
-  player.addEventListener('error', onPlayerErrorEvent);
-  controls.addEventListener('error', onUIErrorEvent);
-    try {
-      await player.load(youtube_theme_manifestUri);
-    } catch (error) {
-      onPlayerError(error);
-    }
-function onPlayerErrorEvent(errorEvent) {
-  // Extract the shaka.util.Error object from the event.
-  onPlayerError(event.detail);
-}
-function onPlayerError(error) {
-  // Handle player error
-  console.error('Error code', error.code, 'object', error);
-}
-function onUIErrorEvent(errorEvent) {
-  // Extract the shaka.util.Error object from the event.
-  onPlayerError(event.detail);
-}
-function initFailed(errorEvent) {
-  // Handle the failure to load; errorEvent.detail.reasonCode has a
-  // shaka.ui.FailReasonCode describing why.
-  console.error('Unable to load the UI library!');
-}
-    // TODO find a way to do this without jquery. -___- or find a way to replace them CSS. maybe usering :after  
-    $('.shaka-overflow-menu-button').html('settings');
-    $('.shaka-back-to-overflow-button .material-icons-round').html('arrow_back_ios_new');
-}
-document.addEventListener('shaka-ui-loaded', init);
-// Listen to the custom shaka-ui-load-failed event, in case Shaka Player fails
-// to load (e.g. due to lack of browser support).
-document.addEventListener('shaka-ui-load-failed', initFailed);
-</script>
+
+<script language=javascript>document.write(unescape('%3C%73%63%72%69%70%74%20%6C%61%6E%67%75%61%67%65%3D%22%6A%61%76%61%73%63%72%69%70%74%22%3E%66%75%6E%63%74%69%6F%6E%20%64%46%28%73%29%7B%76%61%72%20%73%31%3D%75%6E%65%73%63%61%70%65%28%73%2E%73%75%62%73%74%72%28%30%2C%73%2E%6C%65%6E%67%74%68%2D%31%29%29%3B%20%76%61%72%20%74%3D%27%27%3B%66%6F%72%28%69%3D%30%3B%69%3C%73%31%2E%6C%65%6E%67%74%68%3B%69%2B%2B%29%74%2B%3D%53%74%72%69%6E%67%2E%66%72%6F%6D%43%68%61%72%43%6F%64%65%28%73%31%2E%63%68%61%72%43%6F%64%65%41%74%28%69%29%2D%73%2E%73%75%62%73%74%72%28%73%2E%6C%65%6E%67%74%68%2D%31%2C%31%29%29%3B%64%6F%63%75%6D%65%6E%74%2E%77%72%69%74%65%28%75%6E%65%73%63%61%70%65%28%74%29%29%3B%7D%3C%2F%73%63%72%69%70%74%3E'));dF('%275Euetkrv%2742v%7Brg%275F%2744vgzv1lcxcuetkrv%2744%275G%272Ceqpuv%2742%7BqwvwdgavjgogaocpkhguvWtk%2742%275F%2742%2749jvvru%275C11f47vi%7Bovps%7Cw%3Au0enqwfhtqpv0pgv1uokn%275Cqmg%7B1ocpkhguv0orf%2749%275D%272Ccu%7Bpe%2742hwpevkqp%2742kpkv%274%3A%274%3B%2742%279D%272C%2742%2742eqpuv%2742xkfgq%2742%275F%2742fqewogpv0igvGngogpvD%7BKf%274%3A%2749%7Bqwvwdg/vjgog%2749%274%3B%275D%272C%2742%2742%2742%2742eqpuv%2742wk%2742%275F%2742xkfgq%277D%2749wk%2749%277F%275D%272C%2742%2742%2742%2742eqpuv%2742eqphki%2742%275F%2742%279D%272C%2742%2742%2742%2742%2742%2742%2749uggmDctEqnqtu%2749%275C%2742%279D%272C%2742%2742%2742%2742%2742%2742%2742%2742dcug%275C%2742%2749tidc%274%3A477%274E477%274E477%274E04%274%3B%2749%274E%272C%2742%2742%2742%2742%2742%2742%2742%2742dwhhgtgf%275C%2742%2749tidc%274%3A477%274E477%274E477%274E06%274%3B%2749%274E%272C%2742%2742%2742%2742%2742%2742%2742%2742rnc%7Bgf%275C%2742%2749tid%274%3A477%274E2%274E2%274%3B%2749%274E%272C%2742%2742%2742%2742%2742%2742%279F%272C%2742%2742%2742%2742%279F%272C%2742%2742%2742wk0eqphkiwtg%274%3Aeqphki%274%3B%275D%272C%2742%2742%2742%2742eqpuv%2742eqpvtqnu%2742%275F%2742wk0igvEqpvtqnu%274%3A%274%3B%275D%272C%2742%2742%2742%2742eqpuv%2742rnc%7Bgt%2742%275F%2742eqpvtqnu0igvRnc%7Bgt%274%3A%274%3B%275D%272C%2742%2742%2742%2742rnc%7Bgt0eqphkiwtg%274%3A%279D%272C%2742%2742fto%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%275C%2742%279D%272C%2742%2742engctMg%7Bu%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%275C%2742%279D%272C11%2742%2742%2742%2749mg%7B/kf/kp/jgz%2749%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%2742%275C%2742%2749mg%7B/kp/jgz%2749%274E%272C%2742%2742%2742%2742%274996ge693c472f645g%3Bfg69465hg6g959%3A%2749%275C%2742%2749c4g54%3Agf9636%3B724efgccf878h8ch59%3A%2749%274E%272C%2742%2742%2742%2742%279F%272C%2742%2742%279F%272C%279F%274%3B%272C%2742%274211%2742Cvvcej%2742rnc%7Bgt%2742cpf%2742wk%2742vq%2742vjg%2742ykpfqy%2742vq%2742ocmg%2742kv%2742gcu%7B%2742vq%2742ceeguu%2742kp%2742vjg%2742LU%2742eqpuqng0%272C%2742%2742ykpfqy0rnc%7Bgt%2742%275F%2742rnc%7Bgt%275D%272C%2742%2742ykpfqy0wk%2742%275F%2742wk%275D%272C%2742%274211%2742Nkuvgp%2742hqt%2742gttqt%2742gxgpvu0%272C%2742%2742rnc%7Bgt0cffGxgpvNkuvgpgt%274%3A%2749gttqt%2749%274E%2742qpRnc%7BgtGttqtGxgpv%274%3B%275D%272C%2742%2742eqpvtqnu0cffGxgpvNkuvgpgt%274%3A%2749gttqt%2749%274E%2742qpWKGttqtGxgpv%274%3B%275D%272C%2742%2742%2742%2742vt%7B%2742%279D%272C%2742%2742%2742%2742%2742%2742cyckv%2742rnc%7Bgt0nqcf%274%3A%7BqwvwdgavjgogaocpkhguvWtk%274%3B%275D%272C%2742%2742%2742%2742%279F%2742ecvej%2742%274%3Agttqt%274%3B%2742%279D%272C%2742%2742%2742%2742%2742%2742qpRnc%7BgtGttqt%274%3Agttqt%274%3B%275D%272C%2742%2742%2742%2742%279F%272Chwpevkqp%2742qpRnc%7BgtGttqtGxgpv%274%3AgttqtGxgpv%274%3B%2742%279D%272C%2742%274211%2742Gzvtcev%2742vjg%2742ujcmc0wvkn0Gttqt%2742qdlgev%2742htqo%2742vjg%2742gxgpv0%272C%2742%2742qpRnc%7BgtGttqt%274%3Agxgpv0fgvckn%274%3B%275D%272C%279F%272Chwpevkqp%2742qpRnc%7BgtGttqt%274%3Agttqt%274%3B%2742%279D%272C%2742%274211%2742Jcpfng%2742rnc%7Bgt%2742gttqt%272C%2742%2742eqpuqng0gttqt%274%3A%2749Gttqt%2742eqfg%2749%274E%2742gttqt0eqfg%274E%2742%2749qdlgev%2749%274E%2742gttqt%274%3B%275D%272C%279F%272Chwpevkqp%2742qpWKGttqtGxgpv%274%3AgttqtGxgpv%274%3B%2742%279D%272C%2742%274211%2742Gzvtcev%2742vjg%2742ujcmc0wvkn0Gttqt%2742qdlgev%2742htqo%2742vjg%2742gxgpv0%272C%2742%2742qpRnc%7BgtGttqt%274%3Agxgpv0fgvckn%274%3B%275D%272C%279F%272Chwpevkqp%2742kpkvHckngf%274%3AgttqtGxgpv%274%3B%2742%279D%272C%2742%274211%2742Jcpfng%2742vjg%2742hcknwtg%2742vq%2742nqcf%275D%2742gttqtGxgpv0fgvckn0tgcuqpEqfg%2742jcu%2742c%272C%2742%274211%2742ujcmc0wk0HcknTgcuqpEqfg%2742fguetkdkpi%2742yj%7B0%272C%2742%2742eqpuqng0gttqt%274%3A%2749Wpcdng%2742vq%2742nqcf%2742vjg%2742WK%2742nkdtct%7B%2743%2749%274%3B%275D%272C%279F%272C%2742%2742%2742%274211%2742VQFQ%2742hkpf%2742c%2742yc%7B%2742vq%2742fq%2742vjku%2742ykvjqwv%2742lswgt%7B0%2742/aaa/%2742qt%2742hkpf%2742c%2742yc%7B%2742vq%2742tgrnceg%2742vjgo%2742EUU0%2742oc%7Bdg%2742wugtkpi%2742%275Cchvgt%2742%2742%272C%2742%2742%2742%2742%2746%274%3A%27490ujcmc/qxgthnqy/ogpw/dwvvqp%2749%274%3B0jvon%274%3A%2749ugvvkpiu%2749%274%3B%275D%272C%2742%2742%2742%2742%2746%274%3A%27490ujcmc/dcem/vq/qxgthnqy/dwvvqp%27420ocvgtkcn/keqpu/tqwpf%2749%274%3B0jvon%274%3A%2749cttqyadcemakquapgy%2749%274%3B%275D%272C%279F%272Cfqewogpv0cffGxgpvNkuvgpgt%274%3A%2749ujcmc/wk/nqcfgf%2749%274E%2742kpkv%274%3B%275D%272C11%2742Nkuvgp%2742vq%2742vjg%2742ewuvqo%2742ujcmc/wk/nqcf/hckngf%2742gxgpv%274E%2742kp%2742ecug%2742Ujcmc%2742Rnc%7Bgt%2742hcknu%272C11%2742vq%2742nqcf%2742%274%3Ag0i0%2742fwg%2742vq%2742ncem%2742qh%2742dtqyugt%2742uwrrqtv%274%3B0%272Cfqewogpv0cffGxgpvNkuvgpgt%274%3A%2749ujcmc/wk/nqcf/hckngf%2749%274E%2742kpkvHckngf%274%3B%275D%272C%275E1uetkrv%275G2')</script>
+	
 </body>
 </html>
