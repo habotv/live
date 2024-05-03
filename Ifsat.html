@@ -10,6 +10,9 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.7.7/dist/controls.css">
   <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.7.7/dist/shaka-player.ui.debug.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habotv/mokutv@master/youtube-shaka.css">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
   <style>
   *{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;-webkit-border:0;-moz-border:0;border:0;cursor:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;}html,body{width:100vw;width:100svw;height:100vh;height:100svh;background:#000;overflow:hidden;}video{width:100vw;width:100svw;height:100vh;height:100svh;overflow:hidden}.theme-blue .shaka-controls-button-panel .material-icons-round{color:#eee}.theme-blue .shaka-overflow-menu,.theme-blue .shaka-settings-menu{background:rgba(0,0,0,0.8);border-radius:4px;}.theme-blue .shaka-overflow-menu span+span{font-size:80%;color:#fff;padding-top:2px}.theme-blue .shaka-overflow-menu button,.theme-blue .shaka-settings-menu button{color:#fff;transition:all .2s linear;}.theme-blue .shaka-overflow-menu button:hover,.theme-blue .shaka-settings-menu button:hover{background:#3275e4;cursor:auto}
@@ -23,7 +26,18 @@
 </div></div>
 
   <script>
-    const manifestUri = 'https://d25tgymtnqzu8s.cloudfront.net/smil:okey/manifest.mpd';
+  <script type="text/javascript">
+const youtube_theme_manifestUri = 'https://ssc-1-ak.akamaized.net/out/v1/0da39f594cc34c4a9b03f0d696a86276/index.mpd';
+async function init() {
+  const video = document.getElementById('youtube-theme');
+    const ui = video['ui'];
+    const config = {
+      'seekBarColors': {
+        base: 'rgba(255,255,255,.2)',
+        buffered: 'rgba(255,255,255,.4)',
+        played: 'rgb(255,0,0)',
+      }
+    }
 
     function initApp() {
       shaka.polyfill.installAll();
