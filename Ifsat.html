@@ -1,32 +1,27 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>TV Okey | RTM</title>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.7.7/dist/controls.css">
-  <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.7.7/dist/shaka-player.ui.debug.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habotv/mokutv@master/youtube-shaka.css">
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<meta name="referrer" content="no-referrer" />
+ <script src="https://ajax.googleapis.com/ajax/libs/shaka-player/4.3.3/shaka-player.compiled.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/shaka-player/4.3.3/shaka-player.compiled.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.1.1/shaka-player.ui.min.js' crossorigin='anonymous'></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.3/controls.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habotv/mokutv@master/youtube-shaka.css">
 <link href="https://fonts.googleapis.com/css?family=Material+Icons+Sharp" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  
-  <style>
-  *{margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;outline:none;-webkit-border:0;-moz-border:0;border:0;cursor:none;-webkit-user-select:none;-moz-user-select:none;user-select:none;}html,body{width:100vw;width:100svw;height:100vh;height:100svh;background:#000;overflow:hidden;}video{width:100vw;width:100svw;height:100vh;height:100svh;overflow:hidden}.theme-blue .shaka-controls-button-panel .material-icons-round{color:#eee}.theme-blue .shaka-overflow-menu,.theme-blue .shaka-settings-menu{background:rgba(0,0,0,0.8);border-radius:4px;}.theme-blue .shaka-overflow-menu span+span{font-size:80%;color:#fff;padding-top:2px}.theme-blue .shaka-overflow-menu button,.theme-blue .shaka-settings-menu button{color:#fff;transition:all .2s linear;}.theme-blue .shaka-overflow-menu button:hover,.theme-blue .shaka-settings-menu button:hover{background:#3275e4;cursor:auto}
-  </style>
-
+<style>
+	@import "https://fonts.googleapis.com/css?family=Play:300,400,700";
+	@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700";
+	@import "https://fonts.googleapis.com/css?family=Monda:300,400,700";
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
 </head>
-<body>
-
+<body bgcolor='black' style='margin:0'>
 <div class="youtube-theme">
-<div data-shaka-player-container="" class="shaka-mobile shaka-video-container" shaka-controls="true"><video autoplay="" autostart="true" data-shaka-player="" poster="https://cdn.jsdelivr.net/gh/bitmox/malay@main/promis.jpg" id="youtube-theme" style="width: 100vw; height: calc(var(--vh, 1vh) * 100);" class="shaka-video"></video>
+<div data-shaka-player-container="" class="shaka-mobile shaka-video-container" shaka-controls="true"><video autoplay="" autostart="true" data-shaka-player="" poster="https://cdn.jsdelivr.net/gh/habotv/mokutv@master/mokutv.jpg" id="youtube-theme" style="width: 100vw; height: calc(var(--vh, 1vh) * 100);" class="shaka-video"></video>
 </div></div>
-
-  <script>
-  <script type="text/javascript">
+<script type="text/javascript">
 const youtube_theme_manifestUri = 'https://d25tgymtnqzu8s.cloudfront.net/smil:okey/manifest.mpd';
 async function init() {
   const video = document.getElementById('youtube-theme');
@@ -38,75 +33,53 @@ async function init() {
         played: 'rgb(255,0,0)',
       }
     }
-
-    function initApp() {
-      shaka.polyfill.installAll();
-      if (shaka.Player.isBrowserSupported()) {
-        init();
-      } else {
-        console.error('Browser not supported!');
-      }
+   ui.configure(config);
+    const controls = ui.getControls();
+    const player = controls.getPlayer();
+    player.configure({
+  drm                               : {
+  clearKeys                         : {
+//   'key-id-in-hex'                : 'key-in-hex',
+    '74ec471a250d423e9de47243fe4e7378': 'a2e328ed74149502cdeaad656f6af378',
     }
-
-    async function init() {
-      const video = document.getElementById('video');
-      const ui = video['ui'];
-      const controls = ui.getControls();
-      const player = controls.getPlayer();
-      const config = {
-        'seekBarColors': {
-          base: 'rgba(66, 133, 244, 0.35)',
-          buffered: 'rgba(66, 133, 244, 0.6)',
-          played: 'rgba(66, 133, 244, 0.8)',
-        },
-        'volumeBarColors': {
-          base: 'rgba(66, 133, 244, 0.8)',
-          level: 'rgb(66, 133, 244)',
-        }
-      }
-      ui.configure(config);
-
-      window.player = player;
-      window.ui = ui;
-      window.controls = controls;
-
-      player.addEventListener("error", onPlayerErrorEvent);
-      controls.addEventListener("error", onUIErrorEvent);
-
-      try {
-        await player.load(manifestUri);
-        console.log('The video has now been loaded!');
-      } catch (error) {
-        onPlayerError(error);
-      }
-
-      function onPlayerErrorEvent(errorEvent) {
-        onPlayerError(event.detail);
-      }
-
-      function onPlayerError(error) {
-        console.error('Error code', error.code + ':', 'Video could not be loaded!', '[Media not found].');
-      }
-
-      function onUIErrorEvent(errorEvent) {
-        onPlayerError(event.detail);
-      }
+  }
+})
+  // Attach player and ui to the window to make it easy to access in the JS console.
+  window.player = player;
+  window.ui = ui;
+  // Listen for error events.
+  player.addEventListener('error', onPlayerErrorEvent);
+  controls.addEventListener('error', onUIErrorEvent);
+    try {
+      await player.load(youtube_theme_manifestUri);
+    } catch (error) {
+      onPlayerError(error);
     }
-
-    function initFailed(errorEvent) {
-      console.error('Unable to load the UI library!');
-    }
-
-    document.addEventListener('shaka-ui-loaded', init);
-    document.addEventListener('shaka-ui-load-failed', initFailed);
-    document.addEventListener('DOMContentLoaded', initApp);
-
-    Object.defineProperty(navigator, 'userAgent', {
-      get: function() { // Latest (Feb 18, 2024)
-        return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Firefox/122.0 Edg/121.0.2277.112 OPR/107.0.0.0 UCBrowser/16.3.0.1281 Vivaldi/6.5.3206.63 YaBrowser/23.9.0.2325 Yowser/2.5 Safari/537.36';
-      }
-    });
-  </script>
-
+function onPlayerErrorEvent(errorEvent) {
+  // Extract the shaka.util.Error object from the event.
+  onPlayerError(event.detail);
+}
+function onPlayerError(error) {
+  // Handle player error
+  console.error('Error code', error.code, 'object', error);
+}
+function onUIErrorEvent(errorEvent) {
+  // Extract the shaka.util.Error object from the event.
+  onPlayerError(event.detail);
+}
+function initFailed(errorEvent) {
+  // Handle the failure to load; errorEvent.detail.reasonCode has a
+  // shaka.ui.FailReasonCode describing why.
+  console.error('Unable to load the UI library!');
+}
+    // TODO find a way to do this without jquery. -___- or find a way to replace them CSS. maybe usering :after  
+    $('.shaka-overflow-menu-button').html('settings');
+    $('.shaka-back-to-overflow-button .material-icons-round').html('arrow_back_ios_new');
+}
+document.addEventListener('shaka-ui-loaded', init);
+// Listen to the custom shaka-ui-load-failed event, in case Shaka Player fails
+// to load (e.g. due to lack of browser support).
+document.addEventListener('shaka-ui-load-failed', initFailed);
+</script>
 </body>
 </html>
