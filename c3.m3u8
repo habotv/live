@@ -1,5 +1,8 @@
 #EXTM3U
-#EXT-X-VERSION:3
-#EXT-X-INDEPENDENT-SEGMENTS
-#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=7000000,RESOLUTION=1024x576,FRAME-RATE=25.000
-https://live-global-cdn-v02.afreecatv.com/live-stmc-24/auth_playlist.m3u8?aid=.A32.7bbT56vyHM9fKZk.999j1CKpp6k6tm1VzjUGZoYvlJuxeawaKCor0LqfhfMUnHmDD3DPMjCpUPr8shCbDPyNXLHP4VC-mYCnO8b3J2QUP13NTNQj4UZIJBBU3AkG_jkh12enU8bkSrFOf885
+#EXT-X-VERSION:5
+#EXT-X-MEDIA:TYPE=AUDIO,URI="https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-mp4a_66000_eng=2.m3u8",GROUP-ID="audio-AACL-66",LANGUAGE="en",NAME="English",DEFAULT=YES,AUTOSELECT=YES,CHANNELS="2"
+#EXT-X-MEDIA:TYPE=AUDIO,URI="https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-mp4a_98800_eng=3.m3u8",GROUP-ID="audio-AACL-99",LANGUAGE="en",NAME="English",DEFAULT=YES,AUTOSELECT=YES,CHANNELS="2"
+#EXT-X-STREAM-INF:BANDWIDTH=656287,AVERAGE-BANDWIDTH=596626,CODECS="avc1.4d401f,mp4a.40.2",RESOLUTION=640x360,FRAME-RATE=25.000,HDCP-LEVEL=TYPE-0,AUDIO="audio-AACL-66"
+https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-avc1_499968=8.m3u8
+#EXT-X-STREAM-INF:BANDWIDTH=692727,AVERAGE-BANDWIDTH=629754,CODECS="avc1.4d401f,mp4a.40.2",RESOLUTION=640x360,FRAME-RATE=25.000,HDCP-LEVEL=TYPE-0,AUDIO="audio-AACL-99"
+https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-avc1_499968=8.m3u8
