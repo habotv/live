@@ -1,8 +1,4 @@
 #EXTM3U
 #EXT-X-VERSION:5
-#EXT-X-MEDIA:TYPE=AUDIO,URI="https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-mp4a_66000_eng=2.m3u8",GROUP-ID="audio-AACL-66",LANGUAGE="en",NAME="English",DEFAULT=YES,AUTOSELECT=YES,CHANNELS="2"
-#EXT-X-MEDIA:TYPE=AUDIO,URI="https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-mp4a_98800_eng=3.m3u8",GROUP-ID="audio-AACL-99",LANGUAGE="en",NAME="English",DEFAULT=YES,AUTOSELECT=YES,CHANNELS="2"
 #EXT-X-STREAM-INF:BANDWIDTH=2988287,AVERAGE-BANDWIDTH=2716626,CODECS="avc1.640029,mp4a.40.2",RESOLUTION=1280x720,FRAME-RATE=25.000,HDCP-LEVEL=TYPE-0,AUDIO="audio-AACL-66"
-https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-avc1_2499968=10.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=3024727,AVERAGE-BANDWIDTH=2749754,CODECS="avc1.640029,mp4a.40.2",RESOLUTION=1280x720,FRAME-RATE=25.000,HDCP-LEVEL=TYPE-0,AUDIO="audio-AACL-99"
-https://dsgtq5sngxkde.cloudfront.net/live/eds/VplusLiveRplus/sa_hls/VplusLiveRplus-avc1_2499968=10.m3u8
+http://203.205.137.121/play.cbalive.weibisai.com/live/3580962154333061_AiSD.m3u8?txSecret=827d900a1b49e9459fd9367051c9f50a&txTime=6643FB00
